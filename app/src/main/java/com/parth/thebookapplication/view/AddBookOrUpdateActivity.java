@@ -46,11 +46,15 @@ public class AddBookOrUpdateActivity extends AppCompatActivity {
 
         Intent intent=getIntent();
         if(intent.hasExtra(Util.BOOK_ID)){
+
             typeOfActivity = "Update book detail";
             book.setBookName(intent.getStringExtra(BOOK_NAME));
             book.setUnitPrice(intent.getDoubleExtra(UNIT_PRICE,0));
+
         }else{
+
             typeOfActivity = "Add new book";
+
         }
         activitySecondAcitivyBinding.setAddBook(book);
         toolbar.setTitle(typeOfActivity);

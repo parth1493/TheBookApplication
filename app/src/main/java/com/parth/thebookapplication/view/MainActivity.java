@@ -112,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         booksAdapter.setListener(new BooksAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Book book) {
+
                 selectedBookId = book.getBookId();
                 Log.i("BookIdTest"," at 1 id is "+selectedBookId);
                 Intent intent=new Intent(MainActivity.this, AddBookOrUpdateActivity.class);
@@ -120,8 +121,10 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(BOOK_NAME,book.getBookName());
                 intent.putExtra(UNIT_PRICE,book.getUnitPrice());
                 startActivityForResult(intent,EDIT_BOOK_REQUEST_CODE);
+
             }
         });
+
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {

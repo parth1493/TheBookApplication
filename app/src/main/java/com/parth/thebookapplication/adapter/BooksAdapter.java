@@ -7,9 +7,11 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.parth.thebookapplication.R;
+import com.parth.thebookapplication.Util.BooksDiffCallback;
 import com.parth.thebookapplication.databinding.BookListBinding;
 import com.parth.thebookapplication.model.entity.Book;
 
@@ -39,9 +41,12 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BookViewHold
         return books.size();
     }
 
-    public void setBooks(ArrayList<Book> books) {
-        this.books = books;
-        notifyDataSetChanged();
+    public void setBooks(ArrayList<Book> newBooks) {
+        
+        final DiffUtil.DiffResult result= DiffUtil.calculateDiff(new BooksDiffCallback(books,newBooks),false);
+        books = newBooks;
+        result.dispatchUpdatesTo(BooksAdapter.this);
+
     }
 
     class BookViewHolder extends RecyclerView.ViewHolder{
