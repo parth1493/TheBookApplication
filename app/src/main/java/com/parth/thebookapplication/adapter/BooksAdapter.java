@@ -42,7 +42,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BookViewHold
     }
 
     public void setBooks(ArrayList<Book> newBooks) {
-        
+
         final DiffUtil.DiffResult result= DiffUtil.calculateDiff(new BooksDiffCallback(books,newBooks),false);
         books = newBooks;
         result.dispatchUpdatesTo(BooksAdapter.this);
