@@ -1,5 +1,6 @@
 package com.parth.thebookapplication.model;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -15,10 +16,7 @@ import java.util.List;
 public interface CategoryDao {
 
     @Query("SELECT * FROM category_table")
-    List<Category> getAllCategory();
-
-    @Query("SELECT * FROM category_table WHERE id IN (:categoryId)")
-    List<Category> loadAllByIds(int[] categoryId);
+    LiveData<List<Category>> getAllCategory();
 
     @Insert
     void insert(Category... categories);
