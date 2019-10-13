@@ -57,7 +57,7 @@ public class DataEntry {
         book5.setCategoryId(2);
 
         Book book6 = new Book();
-        book6.setBookName("Book1");
+        book6.setBookName("Book6");
         book6.setUnitPrice(230);
         book6.setCategoryId(2);
 

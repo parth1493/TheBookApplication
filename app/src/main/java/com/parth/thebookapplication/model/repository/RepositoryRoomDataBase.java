@@ -1,11 +1,9 @@
-package com.parth.thebookapplication.repository;
+package com.parth.thebookapplication.model.repository;
 
 import android.app.Application;
-import android.content.Context;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
 import com.parth.thebookapplication.model.AppDatabase;
 import com.parth.thebookapplication.model.BookDao;
