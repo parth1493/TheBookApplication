@@ -34,15 +34,15 @@ public class MainActivityViewModel extends AndroidViewModel {
     }
 
     public void addNewBook(Book book){
-        repositoryRoomDataBase.insetbook(book);
+        repositoryRoomDataBase.insetBook(book);
     }
 
     public void updateBook(Book book){
-        repositoryRoomDataBase.updatebook(book);
+        repositoryRoomDataBase.updateBook(book);
     }
 
     public void deleteBook(Book book){
-        repositoryRoomDataBase.deltebook(book);
+        repositoryRoomDataBase.delteBook(book);
     }
 
 
