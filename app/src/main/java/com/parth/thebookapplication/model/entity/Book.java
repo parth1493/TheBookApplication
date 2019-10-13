@@ -21,10 +21,13 @@ public class Book extends BaseObservable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private int bookId;
+
     @ColumnInfo(name = "book_name")
     private String bookName;
+
     @ColumnInfo(name = "unit_price")
     private double unitPrice;
+
     @ColumnInfo(name = "category_id")
     private int categoryId;
 

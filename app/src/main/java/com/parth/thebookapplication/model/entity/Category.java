@@ -1,5 +1,6 @@
 package com.parth.thebookapplication.model.entity;
 
+import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.library.baseAdapters.BR;
@@ -56,5 +57,11 @@ public class Category extends BaseObservable {
     public void setDescription(String description) {
         this.description = description;
         notifyPropertyChanged(BR.description);
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return this.getCategoryName();
     }
 }
