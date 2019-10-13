@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mainActivityViewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+        mainActivityViewModel = new ViewModelProvider(MainActivity.this).get(MainActivityViewModel.class);
 
         mainActivityViewModel.getGetAllCategory().observe(this, new Observer<List<Category>>() {
             @Override
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-       
+
 
         //data binding
         activityMainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main);
@@ -165,31 +165,24 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         Log.i("BookIdTest"," at 4 top id is "+selectedBookId);
         int selectedCategoryId = selectedCatagory.getCategoryID();
-
         if(requestCode==ADD_BOOK_REQUEST_CODE && resultCode==RESULT_OK){
             Log.i("BookIdTest"," at 4 wrong 2 id is "+selectedBookId);
-            Book book = new Book(0,data.getStringExtra(BOOK_NAME),
-                               data.getDoubleExtra(UNIT_PRICE,0),
-                               selectedCategoryId);
-//            book.setCategoryId();
-//            book.setBookName();
-//            book.setUnitPrice();
+            Book book=new Book();
+            book.setCategoryId(selectedCategoryId);
+            book.setBookName(data.getStringExtra(BOOK_NAME));
+            book.setUnitPrice(data.getDoubleExtra(UNIT_PRICE,0));
             mainActivityViewModel.addNewBook(book);
 
 
 
         } else if (requestCode == EDIT_BOOK_REQUEST_CODE && resultCode == RESULT_OK) {
 
-            Book book = new Book(selectedBookId,
-                                 data.getStringExtra(BOOK_NAME),
-                                 data.getDoubleExtra(UNIT_PRICE,0),
-                                 selectedCategoryId);
-//            Book book=new Book();
-//            book.setCategoryId(selectedCategoryId);
-//            book.setBookName(data.getStringExtra(BOOK_NAME));
-//            book.setUnitPrice(data.getDoubleExtra(UNIT_PRICE,0));
-//            Log.i("BookIdTest"," at 4 id is "+selectedBookId);
-//            book.setBookId(selectedBookId);
+            Book book=new Book();
+            book.setCategoryId(selectedCategoryId);
+            book.setBookName(data.getStringExtra(BOOK_NAME));
+            book.setUnitPrice(data.getDoubleExtra(UNIT_PRICE,0));
+            Log.i("BookIdTest"," at 4 id is "+selectedBookId);
+            book.setBookId(selectedBookId);
             mainActivityViewModel.updateBook(book);
 
 
@@ -197,8 +190,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public class MainActivityOnClick {
-
-
 
         public void OnFabClick(View view){
             Intent intent = new Intent(MainActivity.this, AddBookOrUpdateActivity.class);

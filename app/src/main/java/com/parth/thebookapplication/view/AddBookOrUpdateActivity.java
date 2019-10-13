@@ -66,16 +66,20 @@ public class AddBookOrUpdateActivity extends AppCompatActivity {
 
 
         public void onSubmitClick(View view){
-            Log.i("Parth", "onSubmitClick: "+book.getBookName());
+
             if(book.getBookName()==null){
+
                 Toast.makeText(context,"Name field cannot be empty",Toast.LENGTH_LONG).show();
+
             }else{
+
                 Intent intent=new Intent();
                 intent.putExtra(BOOK_NAME,book.getBookName());
                 intent.putExtra(UNIT_PRICE,book.getUnitPrice());
                 setResult(RESULT_OK,intent);
                 Toast.makeText(context,"record " + typeOfActivity ,Toast.LENGTH_LONG).show();
                 finish();
+
             }
         }
     }
