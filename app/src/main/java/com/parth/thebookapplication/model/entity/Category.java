@@ -3,18 +3,19 @@ package com.parth.thebookapplication.model.entity;
 import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
-import androidx.databinding.library.baseAdapters.BR;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
+import com.parth.thebookapplication.BR;
 
 @Entity(tableName = "category_table")
 public class Category extends BaseObservable {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    private int categoryId;
+    private int categoryID;
     @ColumnInfo(name = "category_name")
     private String categoryName;
     @ColumnInfo(name = "description")
@@ -24,19 +25,20 @@ public class Category extends BaseObservable {
     public Category() {
     }
 
-    public Category(int categoryId, String categoryName, String description) {
-        this.categoryId = categoryId;
+    public Category(int categoryID, String categoryName, String description) {
+        this.categoryID = categoryID;
         this.categoryName = categoryName;
         this.description = description;
     }
+
     @Bindable
-    public int getCategoryId() {
-        return categoryId;
+    public int getCategoryID() {
+        return categoryID;
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
-        notifyPropertyChanged(BR.categoryId);
+    public void setCcategoryID(int categoryID) {
+        this.categoryID = categoryID;
+        notifyPropertyChanged(BR.categoryID);
     }
 
     @Bindable
@@ -44,7 +46,7 @@ public class Category extends BaseObservable {
         return categoryName;
     }
 
-    public void setName(String categoryName) {
+    public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
         notifyPropertyChanged(BR.categoryName);
     }

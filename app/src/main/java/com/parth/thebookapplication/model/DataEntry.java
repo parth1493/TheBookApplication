@@ -16,15 +16,15 @@ public class DataEntry {
     public void populateData() {
 
         Category category1 = new Category();
-        category1.setName("Parth");
+        category1.setCategoryName("Parth");
         category1.setDescription("Parth1 Parth1 Parth1 Parth1 Parth1 ");
 
         Category category2 = new Category();
-        category2.setName("Sunny");
+        category2.setCategoryName("Sunny");
         category2.setDescription("Sunny Sunny Sunny Sunny Sunny ");
 
         Category category3 = new Category();
-        category3.setName("Amit");
+        category3.setCategoryName("Amit");
         category3.setDescription("Amit Amit Amit Amit Amit ");
 
         categoryDao.insert(category1);

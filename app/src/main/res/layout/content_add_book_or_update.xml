@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="addBook"
+            type="com.parth.thebookapplication.model.entity.Book" />
+
+        <variable
+            name="onSubmit"
+            type="com.parth.thebookapplication.view.AddBookOrUpdateActivity.HandleClickEvent" />
+    </data>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.AddBookOrUpdateActivity">
+
+        <TextView
+            android:text="@{addBook.bookName}"
+            android:textSize="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:text="@{addBook.bookName}"
+            android:id="@+id/book_name_edit_text"
+            android:textSize="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="Book Price"
+            android:textSize="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:text="@{Double.toString(addBook.unitPrice)}"
+            android:id="@+id/unit_price_edit_text"
+            android:textSize="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/submit"
+            android:text="Submit"
+            android:onClick="@{onSubmit::onSubmitClick}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</layout>

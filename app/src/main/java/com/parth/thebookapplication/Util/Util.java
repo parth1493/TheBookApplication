@@ -6,5 +6,5 @@ public class Util {
 
     public final static String BOOK_NAME = "book_name";
 
-    public final static String BOOK_UNITPRICE = "book_unit_price";
+    public final static String UNIT_PRICE = "book_unit_price";
 }

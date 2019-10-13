@@ -2,12 +2,15 @@ package com.parth.thebookapplication.model.entity;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
-import androidx.databinding.library.baseAdapters.BR;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
+import com.parth.thebookapplication.BR;
 
 import static androidx.room.ForeignKey.CASCADE;
 
@@ -49,7 +52,7 @@ public class Book extends BaseObservable {
 
     public void setBookId(int bookId) {
         this.bookId = bookId;
-        notifyPropertyChanged(BR.bookId);
+        notifyPropertyChanged(com.parth.thebookapplication.BR.bookId);
     }
 
     @Bindable
